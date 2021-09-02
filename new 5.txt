@@ -1,0 +1,14 @@
+select department.department as dept, semester_name.semesterType as sems, sessions.year as ye, courseenrolls.status as 
+status, level.level as lvl, syllabuses.courseCode as courseCode, syllabuses.courseName as courseName, syllabuses.courseCredit as courseCredit
+, courseenrolls.enrollDate as edate
+from department join sessions on sessions.department_id=department.id join semester_name on sessions.semester_id=semester_name.id
+join courseenrolls on courseenrolls.session=sessions.id join level on department.id=level.department
+join syllabuses on syllabuses.id=courseenrolls.course
+
+
+<td><?php echo htmlentities($row["dept"]."- ".$row["sems"]." ".$row["ye"]);?></td>
+                                            <td><?php echo htmlentities(ucwords($row['lvl']));?></td>
+											<td><?php echo htmlentities(ucwords($row['courseCode']));?></td>
+											<td><?php echo htmlentities(ucwords($row['courseName']));?></td>
+											<td><?php echo htmlentities(ucwords($row['courseCredit']));?></td>
+											

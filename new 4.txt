@@ -1,0 +1,14 @@
+<div class="form-group">
+    <label for="courseCode">Course Code  </label>
+    <select class="form-control" name="courseCode" required="required">
+   <option value="">Select  Course Code</option>   
+   <?php 
+$sql=mysqli_query($con,"select * from syllabuses");
+while($row=mysqli_fetch_array($sql))
+{
+?>
+<option value="<?php echo htmlentities($row['id']);?>"><?php echo htmlentities($row['courseCode']);?></option>
+<?php } ?>
+
+    </select> 
+  </div>
